@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSate, useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [number, setNumber] = useState(0);
+    const [userNumber, setUserNumber] = useState();
+    function plusOne() {
+        setNumber(number + 1);
+    }
+    function minusOne() {
+        setNumber(number - 1);
+    }
+    function yourOwn() {
+        setNumber(number + userNumber);
+    } 
+    
+    return (
+        <div className="App">
+            <button onClick={plusOne}>+1</button>
+            <button onClick={minusOne}>-1</button>
+            <input type="text" value={userNumber}></input>
+            <button onClick={yourOwn}>Add your own number</button>
+            <h1>{number}</h1>
+        </div>
+    );
 }
+
 
 export default App;
