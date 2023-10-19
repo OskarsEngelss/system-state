@@ -2,23 +2,20 @@ import { useSate, useState } from "react";
 
 function App() {
     const [number, setNumber] = useState(0);
-    const [userNumber, setUserNumber] = useState();
-    function plusOne() {
-        setNumber(number + 1);
+    const [ratioChange, setRatioChange] = useState(1);
+
+    function addRatio() {
+        setNumber(number + parseInt(ratioChange));
     }
-    function minusOne() {
-        setNumber(number - 1);
+    function subtractRatio() {
+        setNumber(number - ratioChange);
     }
-    function yourOwn() {
-        setNumber(number + userNumber);
-    } 
     
     return (
         <div className="App">
-            <button onClick={plusOne}>+1</button>
-            <button onClick={minusOne}>-1</button>
-            <input type="text" value={userNumber}></input>
-            <button onClick={yourOwn}>Add your own number</button>
+            <input type="number" value={ratioChange} onChange={(event) => {setRatioChange(event.target.value)}} />
+            <button onClick={addRatio}>+</button>
+            <button onClick={subtractRatio}>-</button>
             <h1>{number}</h1>
         </div>
     );
