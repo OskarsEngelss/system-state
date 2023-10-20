@@ -1,24 +1,20 @@
-import { useSate, useState } from "react";
+import Counter from "./Counter.js";
+import Hello from "./Hello.js";
 
 function App() {
-    const [number, setNumber] = useState(0);
-    const [ratioChange, setRatioChange] = useState(1);
+    const words = ["Oskars", "Kristaps", "Kristers"];
+    const wordsJSX = words.map((word, index) => {
+        return (
+            <Hello key={index} defaultWord={word} />
+        );
+    });
 
-    function addRatio() {
-        setNumber(number + parseInt(ratioChange));
-    }
-    function subtractRatio() {
-        setNumber(number - ratioChange);
-    }
-    
-    return (
-        <div className="App">
-            <input type="number" value={ratioChange} onChange={(event) => {setRatioChange(event.target.value)}} />
-            <button onClick={addRatio}>+</button>
-            <button onClick={subtractRatio}>-</button>
-            <h1>{number}</h1>
-        </div>
-    );
+   return (
+       <>
+        <Counter />
+        {wordsJSX}
+       </>
+   );
 }
 
 
