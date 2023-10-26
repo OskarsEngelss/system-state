@@ -4,6 +4,15 @@ import Check from "./Check.js";
 import LabelCheck from "./LabelCheck.js";
 
 function App() {
+    const numbers = [7, 43, 101];
+    const counterJSX = numbers.map((number, index) => {
+        return (
+            <Counter key={index} defaultNumber={number} />
+        );
+    });
+
+
+
     const words = ["Oskars", "Kristaps", "Kristers"];
     const helloJSX = words.map((word, index) => {
         return (
@@ -35,7 +44,7 @@ function App() {
 
    return (
        <>
-        <Counter />
+        {counterJSX}
         {helloJSX}
         {onlyCheckJSX}
         {labelCheckJSX}

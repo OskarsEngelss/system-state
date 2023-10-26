@@ -1,7 +1,7 @@
 import { useSate, useState } from "react";
 
-function Counter() {
-    const [number, setNumber] = useState(0);
+function Counter(props) {
+    const [number, setNumber] = useState(props.defaultNumber);
     const [ratioChange, setRatioChange] = useState(1);
 
     function addRatio() {
@@ -12,7 +12,7 @@ function Counter() {
     }
     
     return (
-        <div className="App">
+        <div key={props.index}>
             <input type="number" value={ratioChange} onChange={(event) => {setRatioChange(event.target.value)}} />
             <button onClick={addRatio}>+</button>
             <button onClick={subtractRatio}>-</button>
